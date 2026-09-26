@@ -1,32 +1,28 @@
-# React + TypeScript + Vite
+# Frontend Proje Mimarisi
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Bu proje, modüler, ölçeklenebilir ve tip güvenli bir mimari hedeflenerek **React**, **TypeScript** ve **React Router** ile kurgulanmıştır.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📁 Proje Klasör Yapısı (Folder Structure)
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+```text
+my-app/
+├── public/                  # Statik dosyalar (favicon, görseller vb.)
+├── src/
+│   ├── assets/              # Görseller, ikonlar ve genel stiller
+│   ├── components/          # UI ve Düzen Bileşenleri
+│   │   ├── ui/              # Atomik/Genel bileşenler (Button, Input, Loader, Toast)
+│   │   └── layout/          # Sayfa iskeletleri (Navbar, Header, Footer)
+│   ├── hooks/               # Özel React Hook'ları (Örn: useFetch.ts)
+│   ├── pages/               # Uygulama Sayfaları (Home, Login, ItemList, ItemDetail)
+│   ├── routes/              # React Router yönlendirme yapılandırması (AppRouter.tsx)
+│   ├── services/            # API Katmanı ve Veri Anahtarı
+│   │   ├── api.ts           # Gerçek Fetch / Axios istemcisi
+│   │   ├── mockData.ts      # Sahte veriler (Mock Data)
+│   │   └── index.ts         # Mock / Gerçek API seçim anahtarı (Switch)
+│   ├── types/               # TypeScript arayüz ve tip tanımlamaları
+│   └── utils/               # Form doğrulama (Validation) ve yardımcı fonksiyonlar
+├── README.md                # Proje dokümantasyonu
+├── package.json             # Bağımlılıklar ve kütüphaneler
+└── tsconfig.json            # TypeScript konfigürasyonu
